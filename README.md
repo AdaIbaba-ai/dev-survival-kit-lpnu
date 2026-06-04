@@ -1,4 +1,4 @@
-# DevSurvivalKit – Developer Stress Relief Toolkit
+# DevSurvivalKit – Interactive Toolkit for Developers
 
 ## Project Description
 
