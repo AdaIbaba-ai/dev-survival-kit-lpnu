@@ -1,4 +1,4 @@
-# DevSurvivalKit
+# DevSurvivalKit – Interactive Toolkit for Developers
 
 ## Project Description
 
