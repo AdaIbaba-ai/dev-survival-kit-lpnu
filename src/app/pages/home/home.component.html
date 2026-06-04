@@ -1,0 +1,107 @@
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/dev-icon.png" alt="Dev Survival Logo" />
+    <span>Dev Survival Kit</span>
+  </div>
+</header>
+<div class="hero">
+  <img src="assets/icons/bug-icon.png" class="floating-icon bug" alt="Bug" />
+  <img
+    src="assets/icons/keyboard-icon.png"
+    class="floating-icon keyboard"
+    alt="Keyboard"
+  />
+  <img src="assets/icons/code-icon.png" class="floating-icon code" alt="Code" />
+  <img
+    src="assets/icons/rocket-icon.png"
+    class="floating-icon rocket"
+    alt="Rocket"
+  />
+  <img
+    src="assets/icons/coffee-icon.png"
+    class="floating-icon coffee"
+    alt="Coffee"
+  />
+  <div class="anti-hero">
+    <div class="intro">
+      <h1>Your Emergency Dev Toolkit! 🚀</h1>
+      <p>
+        Feeling stuck? Bored? Overwhelmed by bugs? We've got your back.<br />
+        Grab your survival tools below!
+      </p>
+      <img src="assets/dev-avatar.png" alt="Dev Avatar" class="avatar" />
+    </div>
+
+    <div class="featured-section">
+      <div class="featured-card trending" (click)="navigate('joke-machine')">
+        <img src="assets/icons/jokes.jpg" alt="Jokes Icon" class="tool-icon" />
+        <div class="badge trending">🔥 Trending</div>
+        <h2>Random Dev Joke Machine</h2>
+        <p>Need a quick laugh? We've got an infinite supply of dev humor!</p>
+      </div>
+
+      <div class="featured-card new" (click)="navigate('what-to-do')">
+        <img
+          src="assets/icons/roulette.png"
+          alt="Roulette Icon"
+          class="tool-icon"
+        />
+        <div class="badge new">❇️ New</div>
+        <h2>What To Do Roulette</h2>
+        <p>
+          Not sure what to do next? Spin the wheel of dev fate and let chaos
+          decide!
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-grid small-grid">
+      <div class="tool-card small" (click)="navigate('meme-battle')">
+        <img
+          src="assets/icons/meme.logo.jpg"
+          alt="Meme Icon"
+          class="tool-icon"
+        />
+        <h2>Meme Battle Royale</h2>
+        <p>
+          Battle it out with the finest collection of dev memes. Vote, share,
+          and laugh!
+        </p>
+      </div>
+
+      <div class="tool-card small" (click)="navigate('alibi-generator')">
+        <img
+          src="assets/icons/excuse.jpg"
+          alt="Excuse Icon"
+          class="tool-icon"
+        />
+        <h2>Excuse-o-Matic 3000</h2>
+        <p>
+          Generate professional-sounding excuses for missed deadlines instantly!
+        </p>
+      </div>
+
+      <div class="tool-card small" (click)="navigate('magic8ball')">
+        <img
+          src="assets/icons/magic.jpg"
+          alt="Magic 8 Ball Icon"
+          class="tool-icon"
+        />
+        <h2>Magic 8-Ball for Devs</h2>
+        <p>Should you deploy on Friday? Ask the all-knowing Magic 8-Ball!</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>
+        “Debugging is like being the detective in a crime movie where you are
+        also the murderer.”
+        <footer>– Filipe Fortes</footer>
+      </blockquote>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Made by devs, for devs 💻</p>
+    <img src="assets/Developer.png" alt="footer logo" class="footer-logo" />
+  </footer>
+</div>

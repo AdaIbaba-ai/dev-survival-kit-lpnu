@@ -1,0 +1,44 @@
+<img src="assets/icons/bug-icon.png" class="floating-icon bug" alt="Bug" />
+<img
+  src="assets/icons/keyboard-icon.png"
+  class="floating-icon keyboard"
+  alt="Keyboard"
+/>
+<img src="assets/icons/code-icon.png" class="floating-icon code" alt="Code" />
+<img
+  src="assets/icons/rocket-icon.png"
+  class="floating-icon rocket"
+  alt="Rocket"
+/>
+<img
+  src="assets/icons/coffee-icon.png"
+  class="floating-icon coffee"
+  alt="Coffee"
+/>
+<div class="magic8-container">
+  <!-- Header -->
+  <header class="magic8-header">
+    <h1>🎱 Magic 8–Ball for Devs</h1>
+    <p>
+      Feeling lost in the bug dimension? Confused by cryptic error messages?
+      Click the button and receive completely unreliable but emotionally
+      satisfying advice from the magical 8-ball of developer fate.
+    </p>
+  </header>
+
+  <!-- Button -->
+  <div class="magic8-button-wrapper">
+    <button class="magic8-button" (click)="shakeBall()">
+      🧙‍♂️ Reveal Your Fate
+    </button>
+  </div>
+
+  <!-- Answer Card -->
+  <div *ngIf="currentAnswer" class="magic8-card">
+    <p class="magic8-answer">"{{ currentAnswer }}"</p>
+    <button class="copy-btn" (click)="copyAnswer()">📋 Copy Wisdom</button>
+  </div>
+
+  <!-- Bubble Bottom Decoration -->
+  <div class="magic8-bubble"></div>
+</div>

@@ -1,0 +1,44 @@
+<img src="assets/icons/bug-icon.png" class="floating-icon bug" alt="Bug" />
+<img
+  src="assets/icons/keyboard-icon.png"
+  class="floating-icon keyboard"
+  alt="Keyboard"
+/>
+<img src="assets/icons/code-icon.png" class="floating-icon code" alt="Code" />
+<img
+  src="assets/icons/rocket-icon.png"
+  class="floating-icon rocket"
+  alt="Rocket"
+/>
+<img
+  src="assets/icons/coffee-icon.png"
+  class="floating-icon coffee"
+  alt="Coffee"
+/>
+<div class="alibi-wrapper">
+  <img src="assets/excuses.png" alt="Alibi Mascot" class="alibi-avatar" />
+
+  <h1 class="alibi-title"><span>The Alibi Generator</span></h1>
+  <p class="alibi-subtext">
+    Did you miss the daily standup? Forget to reply to that Jira ticket from
+    last week? Need a totally professional excuse to cover up an obvious
+    disaster? You're in the right place. Click below to receive your certified
+    dev alibi.
+  </p>
+
+  <div class="alibi-card">
+    <button class="generate-btn" (click)="generateExcuse()">
+      ⚡ Generate My Alibi
+    </button>
+
+    <p *ngIf="excuse" class="alibi-output">{{ excuse }}</p>
+
+    <button *ngIf="excuse" (click)="copyExcuse()" class="copy-btn">
+      📋 Copy Alibi
+    </button>
+  </div>
+
+  <blockquote class="alibi-quote">
+    "Excuses are temporary. Bugs are forever." 💻🐞☕
+  </blockquote>
+</div>

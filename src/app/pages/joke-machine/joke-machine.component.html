@@ -1,0 +1,94 @@
+<!-- Header -->
+<header class="header">
+  <div class="title-section">
+    <h1>🤖 Random Dev Joke Machine</h1>
+    <p>Stuck? Burnt out? Here's some humor to reboot your brain.</p>
+    <img src="assets/dev-bot.png" alt="Funny Dev Bot" />
+  </div>
+</header>
+
+<!-- Main Layout -->
+<div class="layout">
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <h3>Categories</h3>
+    <ul class="category-list">
+      <li
+        *ngFor="let cat of categories"
+        [class.active]="cat === selectedCategory"
+        (click)="selectedCategory = cat; fetchJoke()"
+      >
+        {{ cat }}
+      </li>
+    </ul>
+
+    <div class="joke-day">
+      <h4>⭐ Joke of the Day</h4>
+      <p>Why is Linux safe?</p>
+      <p>Hackers peak through Windows only.</p>
+    </div>
+  </aside>
+
+  <!-- Center Content -->
+  <main class="content">
+    <div class="joke-card">
+      <p class="joke-text">{{ joke }}</p>
+      <div class="button-group">
+        <button class="get-btn" (click)="fetchJoke()">
+          🔁 Give Me Another!
+        </button>
+        <button class="save-btn" (click)="saveFavorite()">
+          💗 Save as Favorite
+        </button>
+      </div>
+      <!-- Rate this joke -->
+      <div style="margin-top: 20px; font-size: 1.1rem; color: #374151">
+        <span style="margin-right: 10px">Rate this joke:</span>
+        <span
+          *ngFor="let i of [1, 2, 3, 4]; let idx = index"
+          (click)="rateJoke(i)"
+          style="cursor: pointer; font-size: 1.5rem"
+        >
+          <span [class.selected]="i <= rating">😂</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="favorites" *ngIf="favorites.length > 0">
+      <h3>💜 Saved Favorites</h3>
+      <ul>
+        <li *ngFor="let fav of favorites">
+          <div class="fav-text">
+            {{ fav.text }}
+            <span class="date">Added: {{ fav.date }}</span>
+
+            <!-- Show rating if available -->
+            <div class="rating-display" *ngIf="fav.rating">
+              Rated:
+              <span *ngFor="let i of [1, 2, 3, 4]">
+                <span *ngIf="i <= fav.rating">😂</span>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="clear-btn" (click)="clearFavorites()">
+        🗑️ Clear Favorites
+      </button>
+    </div>
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="sidebar-right">
+    <div class="card stats">
+      <h4>📊 Fun Stats</h4>
+      <p>Jokes Served: <strong>42,042</strong></p>
+      <p>Laughs Generated: ♾️</p>
+    </div>
+
+    <div class="card fact">
+      <h4>💡 Fun Fact</h4>
+      <p>99% of these jokes compile. Probably. 🤔</p>
+    </div>
+  </aside>
+</div>

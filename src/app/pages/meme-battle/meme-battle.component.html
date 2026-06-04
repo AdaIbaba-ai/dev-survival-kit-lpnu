@@ -1,0 +1,69 @@
+<img src="assets/icons/bug-icon.png" class="floating-icon bug" alt="Bug" />
+<img
+  src="assets/icons/keyboard-icon.png"
+  class="floating-icon keyboard"
+  alt="Keyboard"
+/>
+<img src="assets/icons/code-icon.png" class="floating-icon code" alt="Code" />
+<img
+  src="assets/icons/rocket-icon.png"
+  class="floating-icon rocket"
+  alt="Rocket"
+/>
+<img
+  src="assets/icons/coffee-icon.png"
+  class="floating-icon coffee"
+  alt="Coffee"
+/>
+<div *ngIf="!showChampion" class="meme-battle">
+  <h2 class="title">🔥 Meme Battle Royale 🔥</h2>
+  <p class="subtitle">
+    Two memes enter. One meme leaves. Click the one that made you laugh harder.
+    At the end, only one meme shall reign as the ultimate champion.
+  </p>
+
+  <div class="battle-container">
+    <!-- Meme 1 -->
+    <div class="meme-card" (click)="vote(currentChampion)">
+      <img
+        [src]="'assets/' + memes[currentChampion]"
+        alt="Champion Meme"
+        class="meme-img"
+      />
+      <button class="vote purple">🏅 Vote for this meme</button>
+    </div>
+
+    <!-- VS -->
+    <div class="vs-badge">VS</div>
+
+    <!-- Meme 2 -->
+    <div class="meme-card" (click)="vote(nextChallenger)">
+      <img
+        [src]="'assets/' + memes[nextChallenger]"
+        alt="Challenger Meme"
+        class="meme-img"
+      />
+      <button class="vote pink">⚔️ Vote for this meme</button>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <p>
+      <i>
+        “In the grand battle of memes, there can only be one victor. Choose
+        wisely, for your vote shapes the future of developer humor!”
+      </i>
+      <br />
+      💻🚀😹
+    </p>
+  </div>
+</div>
+
+<!-- Champion -->
+<div *ngIf="showChampion" class="champion-card">
+  <h2>🏆 The Meme Champion Has Been Chosen! 🏆</h2>
+  <img [src]="'assets/' + memes[currentChampion]" width="400" />
+  <p style="font-size: 1.3rem; margin-top: 20px">
+    All others fell in battle. This meme rules them all.
+  </p>
+</div>

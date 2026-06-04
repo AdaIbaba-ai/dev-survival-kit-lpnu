@@ -1,0 +1,259 @@
+/************************************
+ * Layout & Container
+ ************************************/
+.floating-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.4;
+  animation: float 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.bug {
+  top: 10vh;
+  left: 10vw;
+}
+
+.rocket {
+  top: 20vh;
+  right: 10vw;
+}
+.coffee {
+  top: 50vh;
+  right: 30vw;
+}
+
+.keyboard {
+  bottom: 10vh;
+  right: 10vw;
+}
+
+.code {
+  bottom: 25vh;
+  left: 25vw;
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 2.8rem;
+  text-align: center;
+  color: #6b21a8;
+  margin-top: 40px;
+}
+subtitle {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #374151;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  /* Simple gradient background (no images) */
+  background: linear-gradient(to right, #e0e7ff, #fce7f3, #dbeafe);
+  font-family: "Quicksand", sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Wheel + Spin button container */
+.wheel-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 2rem auto;
+}
+
+/************************************
+ * The spinning wheel
+ ************************************/
+.wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+canvas {
+  border-radius: 50%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/************************************
+ * Spin button with pointer arrow
+ ************************************/
+.spin-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.spin-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  transform: translateY(-50%);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 20px solid #4f46e5;
+}
+.spin-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/************************************
+ * Confetti / Rain effect canvas
+ ************************************/
+.effect-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none; /* so clicks go through to the spin button */
+  border-radius: 50%;
+}
+
+/************************************
+ * Result popup
+ ************************************/
+.result-popup {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fff;
+  color: #1f2937;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  /* a popIn-like animation */
+  animation: popIn 0.8s ease-in-out forwards;
+  max-width: 90vw;
+  transform-origin: center;
+}
+
+.result-popup h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.result-popup p {
+  font-size: 1.4rem;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/************************************
+ * Spin History
+ ************************************/
+.history {
+  margin-top: 2rem;
+  text-align: center;
+}
+.history h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+.history li {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+
+/************************************
+ * Smaller screens
+ ************************************/
+@media (max-width: 640px) {
+  .wheel-container {
+    width: 320px;
+    height: 320px;
+  }
+  .wheel,
+  .effect-canvas,
+  canvas {
+    width: 320px;
+    height: 320px;
+  }
+  .spin-button {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+  .spin-button::after {
+    right: -18px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 15px solid #4f46e5;
+  }
+  .result-popup {
+    padding: 1rem;
+  }
+  .result-popup h2 {
+    font-size: 1.5rem;
+  }
+  .result-popup p {
+    font-size: 1.2rem;
+  }
+}

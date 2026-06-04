@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+.bug {
+  top: 10vh;
+  left: 50vw;
+  z-index: -1;
+}
+
+.rocket {
+  top: 10vh;
+  right: 10vw;
+}
+.coffee {
+  top: 50vh;
+  left: 25vw;
+}
+
+.keyboard {
+  bottom: 20vh;
+  right: 20vw;
+}
+
+.code {
+  bottom: 10vh;
+  left: 10vw;
+}
+.floating-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  opacity: 0.5;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+body,
+.magic8-container {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, #e0e7ff 0%, #fce7f3 50%, #dbeafe 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  position: relative;
+}
+
+.magic8-header {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.magic8-header h1 {
+  font-size: 3rem;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.magic8-header p {
+  font-size: 1.1rem;
+  color: #374151;
+}
+
+.magic8-button-wrapper {
+  margin-bottom: 40px;
+}
+
+.magic8-button {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  color: white;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1), 0px 15px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.magic8-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.magic8-card {
+  width: 600px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1), 0px 20px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.magic8-answer {
+  font-size: 1.4rem;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.copy-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: white;
+  border: 2px solid #8b5cf6;
+  color: #8b5cf6;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.magic8-bubble {
+  width: 800px;
+  height: 400px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.2), rgba(0, 0, 0, 0));
+  border-radius: 9999px;
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}

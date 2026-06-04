@@ -1,0 +1,70 @@
+<img src="assets/icons/bug-icon.png" class="floating-icon bug" alt="Bug" />
+<img
+  src="assets/icons/keyboard-icon.png"
+  class="floating-icon keyboard"
+  alt="Keyboard"
+/>
+<img src="assets/icons/code-icon.png" class="floating-icon code" alt="Code" />
+<img
+  src="assets/icons/rocket-icon.png"
+  class="floating-icon rocket"
+  alt="Rocket"
+/>
+<img
+  src="assets/icons/coffee-icon.png"
+  class="floating-icon coffee"
+  alt="Coffee"
+/>
+<div class="intro-text">
+  <h2 class="title">What to Roulette 🎰</h2>
+  <p class="subtitle">
+    Don’t know what to do? Got 8 long hours ahead of you?<br />
+    Let the What To Do Roulette decide your fate! Maybe it’s coffee time, maybe
+    it’s a gossip break…And if you somehow land on work—well, sorry, but destiny
+    itself wrote you in for it today.
+  </p>
+</div>
+<div class="wheel-container">
+  <!-- The spinning wheel (600x600) -->
+  <div class="wheel" [style.transform]="'rotate(' + currentRotation + 'deg)'">
+    <canvas #wheelCanvas width="600" height="600"></canvas>
+  </div>
+
+  <!-- Spin button with pointer arrow to the right -->
+  <button
+    class="spin-button"
+    *ngIf="hasTasks"
+    (click)="spinWheel()"
+    [disabled]="isSpinning"
+  >
+    SPIN
+  </button>
+
+  <!-- Confetti / Rain effect canvas (above the wheel, behind popup) -->
+  <canvas #effectCanvas class="effect-canvas" width="600" height="600">
+  </canvas>
+</div>
+
+<!-- If no tasks, show a placeholder -->
+<div class="no-tasks" *ngIf="!hasTasks">
+  <p>No tasks available!</p>
+</div>
+
+<!-- Result popup -->
+<div class="result-popup" *ngIf="selectedTask">
+  <h2>
+    {{ selectedTask.color === "#000000" ? "Oh no..." : "Congratulations!" }}
+  </h2>
+  <p>
+    You got:
+    <strong>{{ selectedTask.emoji }} {{ selectedTask.label }}</strong>
+  </p>
+</div>
+
+<!-- Spin history (last 5 results) -->
+<div class="history" *ngIf="spinHistory.length > 0">
+  <h3>Recent Spins:</h3>
+  <ul>
+    <li *ngFor="let item of spinHistory">{{ item.emoji }} {{ item.label }}</li>
+  </ul>
+</div>

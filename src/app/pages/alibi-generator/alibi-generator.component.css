@@ -1,0 +1,170 @@
+.bug {
+  top: 100px;
+  left: 200px;
+}
+
+.rocket {
+  top: 300px;
+  right: 200px;
+}
+.coffee {
+  top: 500px;
+  left: 500px;
+}
+
+.keyboard {
+  bottom: 200px;
+  right: 300px;
+}
+
+.code {
+  bottom: 100px;
+  left: 200px;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  opacity: 0.5;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Optional fun float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.alibi-wrapper {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.alibi-avatar {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.alibi-title {
+  font-size: 36px;
+  color: #4c1d95;
+  margin: 10px 0;
+}
+
+.alibi-subtext {
+  color: #4b5563;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.alibi-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 50px;
+}
+
+.generate-btn {
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generate-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.6);
+}
+
+.alibi-output {
+  color: #374151;
+  font-size: 25px;
+  margin: 20px 0;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.copy-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #111827;
+}
+
+.copy-btn:hover {
+  background: #e5e7eb;
+}
+
+.alibi-quote {
+  font-style: italic;
+  color: #374151;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+/* Fun icons */
+.floating-icons .icon {
+  position: absolute;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.icon1 {
+  top: 40px;
+  left: 40px;
+  width: 32px;
+}
+
+.icon2 {
+  top: 60px;
+  right: 50px;
+  width: 36px;
+}
+
+.icon3 {
+  bottom: 80px;
+  left: 30px;
+  width: 36px;
+}
+
+.icon4 {
+  bottom: 50px;
+  right: 40px;
+  width: 36px;
+}
