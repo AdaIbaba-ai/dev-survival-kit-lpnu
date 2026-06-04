@@ -1,5 +1,9 @@
 # DevSurvivalKit
 
+## Project Description
+
+DevSurvivalKit is an Angular-based web application that provides interactive mini-tools for developers, including a random joke generator, meme battle, magic 8-ball and decision roulette. The project is used as an MVP for the university course "Управління ІТ-проєктами".
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
 ## Development server
