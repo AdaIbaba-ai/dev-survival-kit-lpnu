@@ -45,7 +45,7 @@ jobs:
         run: npm run env:prod
 
       - name: Build project
-        run: npx ng build --configuration production --base-href "/dev-survival-kit-lpnu/"
+        run: npm run build:pages
 
       - name: Upload build artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
