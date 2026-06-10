@@ -1,5 +1,8 @@
 # DevSurvivalKit – Interactive Toolkit for Developers
+[![CI/CD Pipeline](https://github.com/AdaIbaba-ai/dev-survival-kit-lpnu/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/AdaIbaba-ai/dev-survival-kit-lpnu/actions/workflows/ci-cd.yml)
+## Live Demo
 
+https://adaibaba-ai.github.io/dev-survival-kit-lpnu/
 ## Project Description
 
 DevSurvivalKit is an Angular-based web application that provides interactive mini-tools for developers, including a random joke generator, meme battle, magic 8-ball and decision roulette. The project is used as an MVP for the university course "Управління ІТ-проєктами".
