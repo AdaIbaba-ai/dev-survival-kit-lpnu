@@ -8,6 +8,7 @@
     "env:dev": "node scripts/generate-env.mjs development",
     "env:prod": "node scripts/generate-env.mjs production",
     "build": "npm run env:prod && ng build",
+    "build:pages": "npm run env:prod && ng build --configuration production --base-href /dev-survival-kit-lpnu/ --prerender=false --ssr=false",
     "preview": "http-server dist/dev-survival-kit/browser -p 4173 -o",
     "watch": "ng build --watch --configuration development",
     "lint": "eslint \"src/**/*.ts\" --quiet",
