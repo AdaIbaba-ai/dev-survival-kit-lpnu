@@ -17,6 +17,13 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it('should have application status from environment', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+
+    expect(app.appStatus).toBeTruthy();
+  });
+
   it('should render router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
