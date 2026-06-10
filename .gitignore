@@ -5,7 +5,12 @@
 /tmp
 /out-tsc
 /bazel-out
-
+node_modules/
+dist/
+.env
+coverage/
+playwright-report/
+test-results/
 # Node
 /node_modules
 npm-debug.log
