@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnalyticsService } from '../../services/analytics.service';
 
 /** Each wheel slice. */
 interface Task {
@@ -8,6 +9,7 @@ interface Task {
   weight: number;
   color: string;
 }
+
 
 /** Particle for either confetti or rain. */
 interface Particle {
@@ -170,6 +172,13 @@ export class WhatToDoComponent implements AfterViewInit {
         // track spin history
         if (this.selectedTask) {
           this.spinHistory.unshift(this.selectedTask);
+
+          this.analytics.capture('roulette_spun', {
+            tool: 'What To Do Roulette',
+            result: this.selectedTask.label,
+            result_type: this.selectedTask.color === '#000000' ? 'work' : 'chill',
+          });
+
           if (this.spinHistory.length > this.config.maxHistory) {
             this.spinHistory.pop();
           }
@@ -353,4 +362,6 @@ export class WhatToDoComponent implements AfterViewInit {
     }
     this.effectParticles = [];
   }
+
+  constructor(private analytics: AnalyticsService) {}
 }

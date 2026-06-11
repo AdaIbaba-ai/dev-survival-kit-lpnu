@@ -29,6 +29,9 @@ const env = readEnvFile(envPath);
 const appStatus =
   env.APP_STATUS || (mode === 'production' ? 'Production Mode' : 'Development Mode');
 
+const posthogKey = env.POSTHOG_KEY || '';
+const posthogHost = env.POSTHOG_HOST || 'https://eu.i.posthog.com';
+
 const environmentsDir = path.resolve(process.cwd(), 'src/environments');
 
 if (!fs.existsSync(environmentsDir)) {
@@ -38,9 +41,12 @@ if (!fs.existsSync(environmentsDir)) {
 const output = `export const environment = {
   production: ${mode === 'production'},
   appStatus: '${appStatus}',
+  posthogKey: '${posthogKey}',
+  posthogHost: '${posthogHost}',
 };
 `;
 
 fs.writeFileSync(path.join(environmentsDir, 'environment.generated.ts'), output);
 
 console.log(`Environment generated from ${envFileName}: ${appStatus}`);
+console.log(`PostHog host: ${posthogHost}`);

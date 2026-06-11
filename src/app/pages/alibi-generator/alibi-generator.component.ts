@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-alibi-generator',
@@ -76,6 +77,8 @@ export class AlibiGeneratorComponent {
     'I was trapped in an infinite loop of procrastination.',
   ];
 
+  constructor(private analytics: AnalyticsService) {}
+
   copyExcuse() {
     if (this.excuse) {
       navigator.clipboard.writeText(this.excuse);
@@ -88,5 +91,9 @@ export class AlibiGeneratorComponent {
   generateExcuse() {
     const index = Math.floor(Math.random() * this.excuses.length);
     this.excuse = this.excuses[index];
+    this.analytics.capture('excuse_generated', {
+      tool: 'Alibi Generator',
+      excuse: this.excuse,
+    });
   }
 }

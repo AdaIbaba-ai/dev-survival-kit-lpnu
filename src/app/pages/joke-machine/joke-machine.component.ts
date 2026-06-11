@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-joke-machine',
@@ -16,7 +17,7 @@ export class JokeMachineComponent {
   joke: string | null = null;
   favorites: { text: string; date: string; rating?: number }[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private analytics: AnalyticsService) {
     this.loadFavorites();
     this.fetchJoke();
   }
@@ -39,6 +40,10 @@ export class JokeMachineComponent {
       });
       localStorage.setItem('favoriteJokes', JSON.stringify(this.favorites));
     }
+    this.analytics.capture('favorite_saved', {
+      tool: 'Random Dev Joke Machine',
+      rating: this.rating,
+    });
   }
 
   clearFavorites() {
@@ -69,6 +74,11 @@ export class JokeMachineComponent {
       error: () => {
         this.joke = 'Oops. No joke today. The server might be sad.';
       },
+    });
+    this.analytics.capture('joke_generated', {
+      tool: 'Random Dev Joke Machine',
+      category: this.selectedCategory,
+      joke_type: 'api_joke',
     });
   }
 }

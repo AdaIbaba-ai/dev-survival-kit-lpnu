@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-meme-battle',
@@ -44,7 +45,7 @@ export class MemeBattleComponent {
   round = 0;
   showChampion = false;
 
-  constructor() {
+  constructor(private analytics: AnalyticsService) {
     this.shuffleMemes();
   }
 
@@ -76,5 +77,9 @@ export class MemeBattleComponent {
     // Load next challenger from shuffled list
     this.nextChallenger = this.shuffledIndices[this.currentIndex];
     this.currentIndex++;
+    this.analytics.capture('meme_voted', {
+      tool: 'Meme Battle Royale',
+      round: this.round,
+    });
   }
 }

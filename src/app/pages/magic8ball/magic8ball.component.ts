@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-magic8ball',
@@ -59,10 +60,15 @@ export class Magic8ballComponent {
   ];
 
   currentAnswer = '';
+  constructor(private analytics: AnalyticsService) {}
 
   shakeBall() {
     const index = Math.floor(Math.random() * this.answers.length);
     this.currentAnswer = this.answers[index];
+    this.analytics.capture('advice_revealed', {
+      tool: 'Magic 8-Ball',
+      answer: this.currentAnswer,
+    });
   }
 
   copyAnswer() {

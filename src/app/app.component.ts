@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment.generated';
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,12 @@ import { environment } from '../environments/environment.generated';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   appStatus = environment.appStatus;
+
+  constructor(private analytics: AnalyticsService) {}
+
+  ngOnInit(): void {
+    this.analytics.init();
+  }
 }
