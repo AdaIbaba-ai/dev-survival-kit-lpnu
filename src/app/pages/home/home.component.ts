@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { AnalyticsService } from '../../services/analytics.service';
 import { CommonModule } from '@angular/common';
+import * as Sentry from '@sentry/angular';
 
 @Component({
   selector: 'app-home',
@@ -27,5 +28,27 @@ export class HomeComponent {
 
   navigate(path: string) {
     this.router.navigate(['/' + path]);
+  }
+
+  breakTheWorld(): void {
+    Sentry.addBreadcrumb({
+      category: 'user',
+      message: 'Break the world button clicked',
+      level: 'info',
+      data: {
+        page: 'Home',
+        action: 'manual_test_error',
+        tool: 'DevSurvivalKit',
+      },
+    });
+
+    Sentry.setTag('test_type', 'manual_lab6_error');
+    Sentry.setContext('lab6_test_context', {
+      feature: 'Sentry integration',
+      component: 'HomeComponent',
+      expected_result: 'Error should appear in Sentry Issues',
+    });
+
+    throw new Error('Sentry Test Error: Break the world button was clicked!');
   }
 }

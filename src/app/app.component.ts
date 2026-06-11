@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment.generated';
 import { AnalyticsService } from './services/analytics.service';
+import * as Sentry from '@sentry/angular';
 
 @Component({
   selector: 'app-root',
@@ -17,5 +18,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.analytics.init();
+
+    Sentry.setUser({
+      id: 'student-adyla-001',
+      email: 'student@example.com',
+      segment: 'lab_user',
+    });
   }
 }
